@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VenueVista</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/main-logo.png') }}" type="image/png"> <!-- Reference link changed -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin-login.css') }}"> <!-- Reference link changed -->
+    
+    <link href="https://fonts.cdnfonts.com/css/gilroy-bold?styles=20876,20877,20878,20879,20880" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+
+
+<body>
+    
+    <div class="page-container">
+
+        <!-- ------------------------ PHOTO COLUMN ------------------------ -->
+
+        <div class="page-photo">
+
+            <a href="{{ url_for('admin.admin_index') }}"> <!-- Reference link changed -->
+                <div class="website-title">
+
+                    <div class="title">
+                        <img src="{{ url_for('static', filename='images/logo-title.png') }}"> <!-- Reference link changed -->
+                    </div>
+
+                    <div class="subtitle">
+                        <img src="{{ url_for('static', filename='images/main-sub.png') }}"> <!-- Reference link changed -->
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+
+
+
+
+        <!-- ------------------------ LOGIN COLUMN ------------------------ -->
+
+        <div class="page-details">
+
+            <div class="container">
+
+                <div class="header">
+
+
+                    <h2>
+                        Sign-In
+                    </h2>
+                </div>
+
+                <div class="forms">
+
+                    <form action="{{ url_for('admin.admin_login') }}" method="POST"> <!-- Reference added for POST request -->
+
+                        <div class="input-cell">
+                            <label for="username" class="label-text">Username</label>
+                            <input type="text" id="username" name="username" class="input-field" placeholder="admin123"> <!-- label name="username" added -->
+                        </div>
+
+                        <div class="input-cell">
+                            <label for="password" class="label-text">Password</label>
+                            <input type="password" id="password" name="password" class="input-field" placeholder="********"> <!-- label name="password" added -->
+                            {% with messages = get_flashed_messages(with_categories=true) %}     
+                                {% if messages %}
+                                    {% for category, message in messages %}           
+                                        {% if category == 'error' %}
+                                            <div class="flash-message"> <!-- Dynamic flash message added -->
+                                                {{ message }}
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            {% endwith %}                        
+                        </div>
+                        
+                        <div class="submit-panel">
+                            <input type="submit" class="button" value="Log-In">
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js/admin-login.js') }}"></script> <!-- Reference link changed -->
+
+</body>
+
+
+</html>

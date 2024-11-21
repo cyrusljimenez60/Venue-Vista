@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VenueVista</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/main-logo.png') }}" type="image/png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/inner-event.css') }}">
+    <link href="https://fonts.cdnfonts.com/css/gilroy-bold?styles=20876,20877,20878,20879,20880" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+</head>
+
+<body>
+    
+    <div class="page-container">
+
+        <div class="navbar-container">
+            <div class="logo-main">
+                <a href="{{ url_for('web.home_page') }}">
+                    <div class="logo-img">
+                        <img src="{{ url_for('static', filename='images/logo-title.png') }}">
+                    </div>
+                </a>
+            </div>
+
+            <div class="navbar-menu">
+                <a href="{{ url_for('web.overall_sort') }}">Venues</a>
+                <a href="{{ url_for('web.inner_city') }}">Cities</a>
+                <a href="{{ url_for('web.inner_event') }}">Events</a>
+                <a href="{{ url_for('admin.admin_index') }}">Admin</a>
+            </div>
+
+
+        </div>
+
+        <div class="banner-container">
+
+            <div class="banner-title">
+                <div class="page-title">
+                    
+                </div>  
+
+                <div class="city-div">
+                    Explore Events Place by Event Type
+                </div>    
+            </div>
+
+
+        </div>
+
+
+<!----------------------------- EVENT TYPE SECTION ----------------------------->
+
+
+<div class="event-type-section">
+    <div class="event-type-title">
+        Browse According to Event Type
+    </div>
+
+    <div class="event-type-photos">
+
+        <div class="photo-buttons">
+            <button class="photo-button" id="previous">
+                <i class="ph ph-caret-left"></i>
+            </button>
+
+            <button class="photo-button" id="next">
+                <i class="ph ph-caret-right"></i>
+            </button>
+            
+        </div>
+
+        
+
+        <div class="photo-container" style="background-image: url('../static/images/Event-Type/Birthday1.jpg');">
+            <a href="{{ url_for('web.event_type') }}" data-event = "Birthdays">
+                <div class="photo-text">
+                    Birthday Venues
+                </div>
+            
+                <div class="nav-circles">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </a>
+        </div>
+
+        <div class="photo-container" style="background-image: url('../static/images/Event-Type/Concert.jpg');">
+            <a href="{{ url_for('web.event_type') }}" data-event = "Concerts">
+                <div class="photo-text">
+                    Concert Venues
+                </div>
+            
+                <div class="nav-circles">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </a>
+        </div>
+
+        <div class="photo-container" style="background-image: url('../static/images/Event-Type/Conference.jpg');">
+            <a href="{{ url_for('web.event_type') }}" data-event = "Conference">
+                <div class="photo-text">
+                    Conference Venues
+                </div>
+            
+                <div class="nav-circles">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </a>
+        </div>
+
+        <div class="photo-container" style="background-image: url('../static/images/Event-Type/CorporateEvent.jpg');">
+            <a href="{{ url_for('web.event_type') }}" data-event = "Corporate Event">
+                <div class="photo-text">
+                    Corporate Event Venues
+                </div>
+            
+                <div class="nav-circles">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </a>
+        </div>
+
+        <div class="photo-container" style="background-image: url('../static/images/Event-Type/Entertainment.jpg');">
+            <a href="{{ url_for('web.event_type') }}" data-event = "Entertainment">
+                <div class="photo-text">
+                    Entertainment Venues
+                </div>
+            
+                <div class="nav-circles">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </a>
+        </div>
+
+        <div class="photo-container" style="background-image: url('../static/images/Event-Type/Festival.jpg');">
+            <a href="{{ url_for('web.event_type') }}" data-event = "Festivals">
+                <div class="photo-text">
+                    Festival Venues
+                </div>
+            
+                <div class="nav-circles">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </a>
+        </div>
+
+        <div class="photo-container" style="background-image: url('../static/images/Event-Type/Graduation.jpg');">
+            <a href="{{ url_for('web.event_type') }}" data-event = "Graduation">
+                <div class="photo-text">
+                    Graduation Venues
+                </div>
+            
+                <div class="nav-circles">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </a>
+        </div>
+
+        <div class="photo-container" style="background-image: url('../static/images/Event-Type/OutdoorActivity.jpg');">
+            <a href="{{ url_for('web.event_type') }}" data-event = "Outdoor Activities">
+                <div class="photo-text">
+                    Outdoor Venues
+                </div>
+            
+                <div class="nav-circles">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </a>
+        </div>
+
+        <div class="photo-container" style="background-image: url('../static/images/Event-Type/SportEvent.jpg');">
+            <a href="{{ url_for('web.event_type') }}" data-event = "Sports Events">
+                <div class="photo-text">
+                    Sports Event Venues
+                </div>
+            
+                <div class="nav-circles">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </a>
+        </div>
+
+        <div class="photo-container" style="background-image: url('../static/images/Event-Type/Wedding.jpg');">
+            <a href="{{ url_for('web.event_type') }}" data-event = "Weddings">
+
+                
+                <div class="photo-text">
+                    Wedding Venues
+                </div>
+            
+                <div class="nav-circles">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+<!----------------------------- EVENT TYPE SECTION ----------------------------->
+
+
+
+
+
+
+
+
+
+
+<script src="{{ url_for('static', filename='js/inner-event.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,746 @@
+:root {
+    --white-color: #FFFAFA;
+    --black-color: #292D32;
+    --lightblack-color: #757575;
+    --lighterblack-color: #e4e4e4;
+    --page-color: #EDEDED;
+    
+    --gradient-primary: linear-gradient(45deg, #110DD5, #108AEE);
+    --primary-color: #110DD5;
+    --multiply-color: rgba(27, 80, 242, 0.8);
+    --multiply-color-2: rgba(42, 42, 42, 0.9);
+
+
+
+    --black-to-transparent-gradient: linear-gradient(
+        to top,
+        rgba(33, 35, 37, 0.7) 0%,
+        rgba(33, 35, 37, 0.5) 20%,
+        rgba(33, 35, 37, 0.3) 40%,
+        rgba(33, 35, 37, 0.1) 70%,
+        rgba(41, 45, 50, 0) 100%
+      );
+
+      --black-to-transparent-gradient-2: linear-gradient(
+        to top,
+        rgba(33, 35, 37, 0.7) 0%,
+        rgba(33, 35, 37, 0.5) 20%,
+        rgba(33, 35, 37, 0.5) 40%,
+        rgba(33, 35, 37, 0.1) 70%,
+        rgba(41, 45, 50, 0) 100%
+      );
+
+      --black-gradient: linear-gradient(
+        to top,
+        rgba(29, 31, 32, 1) 0%,
+        rgba(41, 45, 50, 1) 100%
+        
+      );
+}
+
+.gradient-overlay {
+    position: relative;
+    width: 100%px;
+    height: 100%;
+    background-size: cover;
+  }
+
+.gradient-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: var(--black-to-transparent-gradient);
+    pointer-events: none; 
+  }
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Gilroy-Regular", sans-serif;
+}
+
+body{
+    background-color: var(--page-color);
+}
+
+.page-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+}
+
+
+
+/* ----------------------- NAVBAR -----------------------*/
+
+
+.navbar-container{
+    width: 100%;
+    height: 8vh;
+    background: var(--black-gradient);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0px 32px;
+    
+    
+}
+
+.logo-main{
+    transition: all 0.3s ease;
+}
+
+.logo-main a{
+    text-decoration: none;
+}
+
+.logo-img img{
+    flex: 1;
+    height: 28px;
+    width: auto;
+    object-fit: cover;
+    overflow: hidden;
+    
+}
+
+.logo-main:hover{
+    transform: scale(1.15);
+}
+
+
+.navbar-menu{
+    justify-self: flex-end;
+    text-decoration: none;
+    width: 360px;
+    display: flex;
+    flex-direction: row;
+    
+    justify-content: space-between;
+    gap:40px; 
+    
+}
+
+.navbar-menu > a{
+    
+    flex: 1;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    color: white;
+    position: relative; 
+    display: inline-block; 
+    transition: all 0.3s ease;
+    
+}
+
+
+
+
+
+
+.navbar-menu a::after{
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #FFFAFA;
+    border-radius: 6px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+
+.navbar-menu a:hover::after{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+
+/* ----------------------- NAVBAR -----------------------*/
+
+
+
+
+
+
+
+.banner-container {
+    position: relative;
+    background-image: url("../images/Cities/manila.jpg");
+    background-color: var(--multiply-color); 
+    background-blend-mode: multiply; 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    overflow: hidden;
+    height: 55vh;
+    width: 100%;
+}
+
+
+.banner-container::before{
+
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: var(--black-to-transparent-gradient);
+    mix-blend-mode: multiply;
+
+    pointer-events: none; 
+    
+
+}
+
+.city-div{
+    
+    z-index: 4;
+    font-size: 14px;
+    font-family: 'Gilroy-Medium', sans-serif;
+    text-align: center;
+    background-color: white;
+    padding: 4px 32px;
+    border-radius: 24px;
+
+}
+
+
+.banner-title {
+    z-index: 4;
+    width: 100%;
+    height: 100%;
+
+    margin-top: -10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    
+    
+    
+}
+
+.page-title{
+    z-index: 4;
+    font-size: 72px;
+    font-family: 'Gilroy-Heavy', sans-serif;
+    text-align: center;
+    color: white;
+      
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.search-info{
+    width: 85%;
+    height: 32px; 
+    border-radius: 32px; 
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--lighterblack-color); 
+    border: 1px solid var(--lightblack-color); 
+    
+    overflow: hidden;
+    gap: 8px;
+
+    transition: all 0.3s ease;
+}
+
+
+.search-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 12px;
+    gap: 4px;
+}
+
+.ph-caret-down{
+    margin-left: 16px;
+}
+
+
+.sort-text{
+    font-size: 10px; 
+    text-align: center;
+}
+
+
+.search-info:hover{
+    transform: scale(1.1);
+    background: var(--gradient-primary);
+    color: var(--white-color);
+    border: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.search-button.active,
+.search-button:hover{
+    transform: scale(1.1);
+
+}
+
+.search-button:active{
+    opacity: 0.5;
+}
+
+
+/* --------- Filter Search Section ---------*/
+
+
+
+
+
+
+.event-type-section{
+    position: relative;
+    width: 85%;
+    height: 350px;
+    align-self: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 32px;
+    overflow: hidden;
+
+
+}
+
+
+
+
+
+
+
+
+.event-type-photos{
+    flex-wrap: nowrap;
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+}
+
+.event-type-title{
+    font-family: 'Gilroy-Bold', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--black-color);
+}
+
+
+
+.photo-container{
+    position: relative;
+    height: 200px;
+    width: 100%;
+    
+    border-radius: 32px;
+    border: 1px solid var(--lighterblack-color);
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    object-fit: cover;
+    opacity: 0;
+    display: none;
+    transition: opacity 0.5s ease; 
+
+}
+
+.photo-container.active {
+    opacity: 1;
+    display: block;
+}
+
+
+.photo-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: var(--black-to-transparent-gradient);
+    pointer-events: none; 
+    border-radius: 30px;
+    
+}
+
+
+.photo-container.active a{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    width: 75%;
+    height: 100%;
+    
+}
+
+.photo-container.active a:hover{
+    cursor: pointer;
+}
+
+
+.photo-text{
+    position: absolute;
+
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 32px;
+
+    font-family: 'Gilroy-Bold', sans-serif;
+    color: var(--white-color);
+    font-size: 28px;
+}
+
+
+
+.photo-buttons{
+    z-index: 1;
+    position: absolute;
+    top:60%;
+    transform: translateY(-50%);
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 32px 32px;
+}
+
+.photo-button{
+    height: 44px;
+    width: 44px;
+
+    background: none;
+    border: none;
+
+    transition: all 0.3s ease;
+}
+
+
+.photo-button:hover{
+    transform: scale(1.3);
+    cursor: pointer;
+}
+
+.photo-button i{
+    font-size: 32px;
+    color: var(--white-color);
+
+}
+
+
+
+.nav-circles{
+    
+    width: 40%;
+    height: 10px;
+
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    margin-bottom: 16px;
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    gap: 24px;
+}
+
+.circle{
+    
+    width: 6px;
+    height: 6px;
+    max-width: 6px;
+    max-height: 6px;
+    min-width: 6px;
+    min-height: 6px;
+    border-radius: 50%;
+    border: 1px solid var(--white-color);
+    
+}
+
+.circle.active{
+    background-color: var(--white-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(30px); 
+        opacity: 0;
+    }
+
+    20%{
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0px); 
+        opacity: 1;
+    }
+}
+
+
+@keyframes slideDown {
+    0% {
+        
+        opacity: 0;
+    }
+
+
+    100% {
+        
+        opacity: 1;
+    }
+}
+
+
+.animate-Up {
+    animation: slideUp 2s ease 1s 1 forwards normal;
+    opacity: 0;
+}
+
+.animate-Down {
+    animation: slideDown 1s ease 2s 1 forwards normal;
+    opacity: 0;
+}
+
+
+
+
+@keyframes slideLeft {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-300px);
+        opacity: 0;
+    }
+}
+
+@keyframes slideRight {
+    0% {
+        transform: translateX(-300px);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+
+
+@keyframes slideOut {
+    0% {
+        transform: translateX(-800px);
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(800px);
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+
+
+
+.animate-slideOut {
+    animation: slideOut 0.8s ease forwards;
+    opacity: 1;
+    
+}
+
+.animate-slideIn {
+    animation: slideIn 0.8s ease forwards;
+    opacity: 1;
+}
+
+
+
+
+
+
+.animate-Left {
+    animation: slideLeft 0.5s ease forwards;
+    opacity: 1;
+    
+}
+
+.animate-Right {
+    animation: slideRight 2s ease forwards;
+    opacity: 1;
+}
+
+
+
+
+
+
+
+@keyframes slideUpBack {
+    0% {
+        transform: translateY(45px); 
+        opacity: 0;
+    }
+
+    20%{
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0); 
+        opacity: 1;
+    }
+}
+
+.animate-Up-Back {
+    animation: slideUpBack 1s ease 1 forwards normal;
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+

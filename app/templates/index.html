@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VenueVista</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/main-logo.png') }}" type="image/png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link href="https://fonts.cdnfonts.com/css/gilroy-bold?styles=20876,20877,20878,20879,20880" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/phosphor-icons/css/phosphor-icons.min.css">
+
+
+
+</head>
+
+<body>
+
+
+
+    <input type="hidden" id="baseUrl" data-url="{{ url_for('web.display_record', venue_id=0) }}">
+
+    
+
+    <div class="page-container">
+
+        <div class="navbar-container">
+            <div class="logo-main">
+                <a href="#">
+                    <div class="logo-img">
+                        <img src="{{ url_for('static', filename='images/logo-title.png') }}">
+                    </div>
+                </a>
+            </div>
+
+            <div class="navbar-menu">
+                <a href="{{ url_for('web.overall_sort') }}">Venues</a>
+                <a href="{{ url_for('web.inner_city') }}">Cities</a>
+                <a href="{{ url_for('web.inner_event') }}">Events</a>
+                <a href="{{ url_for('admin.admin_index') }}">Admin</a>
+            </div>
+
+        </div>
+
+        <div class="banner-container">
+            
+            <div class="photo-subj">
+                <img src="{{ url_for('static', filename='images/banner-subj.png') }}">
+            </div>
+
+            <div class="banner-details">
+
+                <div class="logo">
+
+                </div>
+                <div class="title">
+                    <img src="{{ url_for('static', filename='images/logo-title.png') }}">
+                </div>
+                <div class="subtitle">
+                    <img src="{{ url_for('static', filename='images/main-sub.png') }}">
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+
+    <!-- dito lang me nag bago -->
+        <div class="filter-search-section">
+
+            <div class="filter-search-container">
+
+                <!--
+                <div class="sort-oblong" id="sortByPrice">
+                    <p sort-text><i class="ph-fill ph-sliders-horizontal" style="font-size: 1.5em; vertical-align: middle; margin-right: 3px;"></i>Price Range <i class="ph-bold ph-caret-down" style="font-size: 1em; vertical-align: middle; margin-left: 8px;"></i></i></p>
+                </div>
+                <div class="sort-oblong" id="sortByCapacity">
+                    <p sort-text><i class="ph-fill ph-users" style="font-size: 1.5em; vertical-align: middle; margin-right: 3px;"></i>Capacity <i class="ph-bold ph-caret-down" style="font-size: 1em; vertical-align: middle; margin-left: 8px;"></i></p>
+                </div>
+                <div class="sort-oblong" id="sortByLocation">
+                    <p sort-text><i class="ph-fill ph-map-pin" style="font-size: 1.5em; vertical-align: middle; margin-right: 3px;"></i>Location <i class="ph-bold ph-caret-down" style="font-size: 1em; vertical-align: middle; margin-left: 8px;"></i></i></p>
+                </div>
+
+                
+                <div class="sort-oblong" id="sortBySetting">
+
+                    
+                    <div class="search-info">
+                        <i class="ph-fill ph-cheers"></i>
+                        <p sort-text>Setting </p>
+                        <i class="ph-bold ph-caret-down"></i>
+                    </div>
+
+                    <div class="search-settings">
+                        <div class="sort-container" id="sortContainer">
+                            
+                            <div class="header-cell sortby">
+                                <div class="lineS"></div>
+                                <p sort-text>Sort By</p>
+                                <div class="lineL"></div>
+                            </div>
+                        
+
+                        <div class="sort-cell name" id="sortByName">
+                            <i class="ph-bold ph-text-aa"></i>
+                            <p sort-text>Name</p>
+                        </div>
+                        <div class="sort-cell price" id="sortByPrice">
+                            <i class="ph-bold ph-tag"></i>
+                            <p sort-text>Price</p>
+                        </div>
+
+                        
+                            <div class="header-cell orderby">
+                                <div class="lineS"></div>
+                                <p sort-text>Order By</p>
+                                <div class="lineL"></div>
+                            </div>
+                        
+
+                        <div class="sort-cell asc" id="orderByAsc">
+                            <i class="ph-bold ph-funnel-simple"></i>
+                            <p sort-text>Ascending</p>
+                        </div>
+                        <div class="sort-cell desc" id="orderByDesc">
+                            <i class="ph-bold ph-funnel-simple"></i>
+                            <p sort-text>Descending</p>
+                        </div>
+
+                        
+                    </div>
+
+
+
+                    </div>
+
+                    
+                </div>
+
+
+                <div class="sort-oblong" id="sortBySetting">
+
+                    
+                    <div class="search-info">
+                        <i class="ph-fill ph-cheers"></i>
+                        <p sort-text>Setting </p>
+                        <i class="ph-bold ph-caret-down"></i>
+                    </div>
+
+                    <div class="search-settings">
+                        <div class="sort-container" id="sortContainer">
+                            
+                            <div class="header-cell sortby">
+                                <div class="lineS"></div>
+                                <p sort-text>Sort By</p>
+                                <div class="lineL"></div>
+                            </div>
+                        
+
+                        <div class="sort-cell name" id="sortByName">
+                            <i class="ph-bold ph-text-aa"></i>
+                            <p sort-text>Name</p>
+                        </div>
+                        <div class="sort-cell price" id="sortByPrice">
+                            <i class="ph-bold ph-tag"></i>
+                            <p sort-text>Price</p>
+                        </div>
+
+                        
+                            <div class="header-cell orderby">
+                                <div class="lineS"></div>
+                                <p sort-text>Order By</p>
+                                <div class="lineL"></div>
+                            </div>
+                        
+
+                        <div class="sort-cell asc" id="orderByAsc">
+                            <i class="ph-bold ph-funnel-simple"></i>
+                            <p sort-text>Ascending</p>
+                        </div>
+                        <div class="sort-cell desc" id="orderByDesc">
+                            <i class="ph-bold ph-funnel-simple"></i>
+                            <p sort-text>Descending</p>
+                        </div>
+
+                        
+                    </div>
+
+
+
+                    </div>
+
+                -->
+
+
+
+
+
+
+
+            <!--------------- FILTER SEARCH BUTTONS --------------->
+
+
+            <div class="sort-oblong search-by-price" id="search-by-price">
+                
+                <div class="search-section">
+                    <div class="search-button" id="searchButton">
+                        <i class="ph ph-tag"></i>
+                        <p class="search-text">Price</p>
+                        <i class="ph-bold ph-caret-up-down"></i>
+                        
+                    </div>
+
+                    <div class="search-settings">
+                        <div class="search-container price" id="search-container">
+                            
+                                <div class="header-cell sortby">
+                                    <div class="lineS"></div>
+                                    <p sort-text>Filter By</p>
+                                    <div class="lineL"></div>
+                                </div>
+                            
+                                <div class="search-values-container">
+                                    <div class="search-cell p1" id="p1">
+                                        <i class="ph ph-circle"></i>
+                                        <p sort-text>P1K - P5K</p>
+                                    </div>
+                                    <div class="search-cell p2" id="p2">
+                                        <i class="ph ph-circle"></i>
+                                        <p sort-text>P5K - P10K</p>
+                                    </div>
+                                    <div class="search-cell p3" id="p3">
+                                        <i class="ph ph-circle"></i>
+                                        <p sort-text>P10K - P20K</p>
+                                    </div>
+                                    <div class="search-cell p4" id="p4">
+                                        <i class="ph ph-circle"></i>
+                                        <p sort-text>P20K - P50K</p>
+                                    </div>
+                                    <div class="search-cell p5" id="p5">
+                                        <i class="ph ph-circle"></i>
+                                        <p sort-text>P50K - P100K</p>
+                                    </div>
+                                    <div class="search-cell p6" id="p6">
+                                        <i class="ph ph-circle"></i>
+                                        <p sort-text>P100K - P200K</p>
+                                    </div>
+                                    <div class="search-cell p7" id="p7">
+                                        <i class="ph ph-circle"></i>
+                                        <p sort-text>P200K - Above</p>
+                                    </div>
+                                    
+    
+                                </div>
+
+                    
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                
+            </div>
+
+            
+
+            <div class="sort-oblong search-by-capacity" id="search-by-capacity">
+                
+                <div class="search-section">
+                    <div class="search-button" id="searchButton">
+                        <i class="ph ph-users"></i>
+                        <p class="search-text">Capacity</p>
+                        <i class="ph-bold ph-caret-up-down"></i>
+                        
+                    </div>
+
+                    <div class="search-settings">
+                        <div class="search-container price" id="search-container">
+                                <div class="header-cell sortby">
+                                    <div class="lineS"></div>
+                                    <p sort-text>Filter By</p>
+                                    <div class="lineL"></div>
+                                </div>
+                            <div class="search-values-container">
+                                <div class="search-cell c1" id="c1">
+                                    <i class="ph ph-circle"></i>
+                                    <p sort-text>1 - 10 Pax</p>
+                                </div>
+                                <div class="search-cell c2" id="c2">
+                                    <i class="ph ph-circle"></i>
+                                    <p sort-text>10 - 20 Pax</p>
+                                </div>
+                                <div class="search-cell c3" id="c3">
+                                    <i class="ph ph-circle"></i>
+                                    <p sort-text>20 - 50 Pax</p>
+                                </div>
+                                <div class="search-cell c4" id="c4">
+                                    <i class="ph ph-circle"></i>
+                                    <p sort-text>50 - 100 Pax</p>
+                                </div>
+                                <div class="search-cell c5" id="c5">
+                                    <i class="ph ph-circle"></i>
+                                    <p sort-text>100 - 300 Pax</p>
+                                </div>
+                                <div class="search-cell c6" id="c6">
+                                    <i class="ph ph-circle"></i>
+                                    <p sort-text>100 - 300 Pax</p>
+                                </div>
+                                <div class="search-cell c7" id="c7">
+                                    <i class="ph ph-circle"></i>
+                                    <p sort-text>500 - Above</p>
+                                </div>                             
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+
+                
+            </div>
+
+            
+            <div class="sort-oblong search-by-setting" id="search-by-setting">
+                
+                <div class="search-section">
+                    <div class="search-button" id="searchButton">
+                        <i class="ph ph-split-horizontal"></i>
+                        <p class="search-text">Setting</p>
+                        <i class="ph-bold ph-caret-up-down"></i>
+                        
+                    </div>
+
+                    <div class="search-settings">
+                        <div class="search-container price" id="search-container">
+                                <div class="header-cell sortby">
+                                    <div class="lineS"></div>
+                                    <p sort-text>Filter By</p>
+                                    <div class="lineL"></div>
+                                </div>
+                            <div class="search-values-container">
+                                <div class="search-cell p1" id="s1">
+                                    <i class="ph ph-circle"></i>
+                                    <p sort-text>Indoor</p>
+                                </div>
+                                <div class="search-cell p2" id="s2">
+                                    <i class="ph ph-circle"></i>
+                                    <p sort-text>Outdoor</p>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>             
+            </div>
+
+            <div class="sort-oblong search-by-eventtype" id="search-by-eventtype">
+                
+                <div class="search-section">
+                    <div class="search-button" id="searchButton">
+                        <i class="ph ph-magic-wand"></i>
+                        <p class="search-text">Event Type</p>
+                        <i class="ph-bold ph-caret-up-down"></i>
+                        
+                    </div>
+
+                    <div class="search-settings">
+                        <div class="search-container price" id="search-container">
+                                <div class="header-cell sortby">
+                                    <div class="lineS"></div>
+                                    <p sort-text>Filter By</p>
+                                    <div class="lineL"></div>
+                                </div>
+                            <div class="search-values-container">
+                                <div class="search-cell e1" id="e1">
+                                    <i class="ph ph-circle"></i>
+                                    <p sort-text>Birthdays</p>
+                                </div>
+                                <div class="search-cell e2" id="e2">
+                                    <i class="ph ph-circle"></i>
+                                    <p sort-text>Concerts</p>
+                                </div>
+                                <div class="search-cell e3" id="e3">
+                                    <i class="ph ph-circle"></i>
+                                    <p sort-text>Conference</p>
+                                </div>
+                                <div class="search-cell e4" id="e4">
+                                    <i class="ph ph-circle"></i>
+                                    <p sort-text>Corporate Event</p>
+                                </div>
+                                <div class="search-cell e5" id="e5">
+                                    <i class="ph ph-circle"></i>
+                                    <p sort-text>Entertainment</p>
+                                </div>
+                                <div class="search-cell e6" id="e6">
+                                    <i class="ph ph-circle"></i>
+                                    <p sort-text>Festivals</p>
+                                </div>
+                                <div class="search-cell e7" id="e7">
+                                    <i class="ph ph-circle"></i>
+                                    <p sort-text>Graduation</p>
+                                </div>
+                                <div class="search-cell e8" id="e8">
+                                    <i class="ph ph-circle"></i>
+                                    <p sort-text>Outdoor Activities</p>
+                                </div>
+                                <div class="search-cell e9" id="e9">
+                                    <i class="ph ph-circle"></i>
+                                    <p sort-text>Sports Events </p>
+                                </div>
+                                <div class="search-cell e10" id="e10">
+                                    <i class="ph ph-circle"></i>
+                                    <p sort-text>Weddings </p>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>             
+            </div>
+            
+            <div class="sort-oblong search-by-location" id="search-by-location">
+                
+                <div class="search-section">
+                    <div class="search-button" id="search-button">
+                        <i class="ph ph-tag"></i>
+                        <p class="search-text">Location</p>
+                        <i class="ph-bold ph-caret-up-down"></i>
+                        
+                    </div>
+
+                    <div class="search-settings">
+                        <div class="search-container price" id="search-container">
+                            
+                                <div class="header-cell sortby">
+                                    <div class="lineS"></div>
+                                    <p sort-text>Filter By</p>
+                                    <div class="lineL"></div>
+                                </div>
+                            
+                                <div class="search-values-container">
+                                    <div class="search-cell l1" id="l1">
+                                        <i class="ph ph-circle"></i>
+                                        <p sort-text>Caloocan</p>
+                                    </div>
+                                    <div class="search-cell l2" id="l2">
+                                        <i class="ph ph-circle"></i>
+                                        <p sort-text>Las Piñas</p>
+                                    </div>
+                                    <div class="search-cell l3" id="l3">
+                                        <i class="ph ph-circle"></i>
+                                        <p sort-text>Makati</p>
+                                    </div>
+                                    <div class="search-cell l4" id="l4">
+                                        <i class="ph ph-circle"></i>
+                                        <p sort-text>Malabon</p>
+                                    </div>
+                                    <div class="search-cell l5" id="l5">
+                                        <i class="ph ph-circle"></i>
+                                        <p sort-text>Mandaluyong</p>
+                                    </div>
+                                    <div class="search-cell l6" id="l6">
+                                        <i class="ph ph-circle"></i>
+                                        <p sort-text>Manila</p>
+                                    </div>
+                                    <div class="search-cell l7" id="l7">
+                                        <i class="ph ph-circle"></i>
+                                        <p sort-text>Marikina</p>
+                                    </div>
+                                    <div class="search-cell l8" id="l8">
+                                        <i class="ph ph-circle"></i>
+                                        <p sort-text>Muntinlupa</p>
+                                    </div>
+                                    <div class="search-cell l9" id="l9">
+                                        <i class="ph ph-circle"></i>
+                                        <p sort-text>Navotas</p>
+                                    </div>
+                                    <div class="search-cell l10" id="l10">
+                                        <i class="ph ph-circle"></i>
+                                        <p sort-text>Parañaque</p>
+                                    </div>
+                                    <div class="search-cell l11" id="l11">
+                                        <i class="ph ph-circle"></i>
+                                        <p sort-text>Pasay</p>
+                                    </div>
+                                    <div class="search-cell l12" id="l12">
+                                        <i class="ph ph-circle"></i>
+                                        <p sort-text>Pasig</p>
+                                    </div>
+                                    <div class="search-cell l13" id="l13">
+                                        <i class="ph ph-circle"></i>
+                                        <p sort-text>Quezon City</p>
+                                    </div>
+                                    <div class="search-cell l14" id="l14">
+                                        <i class="ph ph-circle"></i>
+                                        <p sort-text>San Juan</p>
+                                    </div>
+                                    <div class="search-cell l15" id="l15">
+                                        <i class="ph ph-circle"></i>
+                                        <p sort-text>Taguig</p>
+                                    </div>
+                                    <div class="search-cell l16" id="l16">
+                                        <i class="ph ph-circle"></i>
+                                        <p sort-text>Valenzuela 
+                                        </p>
+                                    </div>
+    
+                                </div>
+
+                    
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                
+            </div>
+
+
+          
+            <a href="#" class="search-href" data-url="{{ url_for('web.overall_sort') }}">
+            <div class="sort-oblong search-button" id="search-button">
+                
+                <div class="search-section">
+                    <div class="search-button search" id="searchButton">
+                        <p class="search-text">Search</p>
+                        <i class="ph ph-magnifying-glass"></i>
+                    </div>
+                    
+                </div>              
+            </div>
+            </a>
+
+
+            <!--------------- FILTER SEARCH BUTTONS --------------->
+
+            
+
+
+
+
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+<!----------------------------- EVENT TYPE SECTION ----------------------------->
+
+
+        <div class="event-type-section">
+            <div class="event-type-title">
+                Browse According to Event Type
+            </div>
+
+            <div class="event-type-photos">
+
+                <div class="photo-buttons">
+                    <button class="photo-button" id="previous">
+                        <i class="ph ph-caret-left"></i>
+                    </button>
+
+                    <button class="photo-button" id="next">
+                        <i class="ph ph-caret-right"></i>
+                    </button>
+                    
+                </div>
+
+                
+
+                <div class="photo-container" style="background-image: url('../static/images/Event-Type/Birthday1.jpg');">
+                    <a href="{{ url_for('web.event_type') }}" data-event = "Birthdays">
+                        <div class="photo-text">
+                            Birthday Venues
+                        </div>
+                    
+                        <div class="nav-circles">
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="photo-container" style="background-image: url('../static/images/Event-Type/Concert.jpg');">
+                    <a href="{{ url_for('web.event_type') }}" data-event = "Concerts">
+                        <div class="photo-text">
+                            Concert Venues
+                        </div>
+                    
+                        <div class="nav-circles">
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="photo-container" style="background-image: url('../static/images/Event-Type/Conference.jpg');">
+                    <a href="{{ url_for('web.event_type') }}" data-event = "Conference">
+                        <div class="photo-text">
+                            Conference Venues
+                        </div>
+                    
+                        <div class="nav-circles">
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="photo-container" style="background-image: url('../static/images/Event-Type/CorporateEvent.jpg');">
+                    <a href="{{ url_for('web.event_type') }}" data-event = "Corporate Event">
+                        <div class="photo-text">
+                            Corporate Event Venues
+                        </div>
+                    
+                        <div class="nav-circles">
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="photo-container" style="background-image: url('../static/images/Event-Type/Entertainment.jpg');">
+                    <a href="{{ url_for('web.event_type') }}" data-event = "Entertainment">
+                        <div class="photo-text">
+                            Entertainment Venues
+                        </div>
+                    
+                        <div class="nav-circles">
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="photo-container" style="background-image: url('../static/images/Event-Type/Festival.jpg');">
+                    <a href="{{ url_for('web.event_type') }}" data-event = "Festivals">
+                        <div class="photo-text">
+                            Festival Venues
+                        </div>
+                    
+                        <div class="nav-circles">
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="photo-container" style="background-image: url('../static/images/Event-Type/Graduation.jpg');">
+                    <a href="{{ url_for('web.event_type') }}" data-event = "Graduation">
+                        <div class="photo-text">
+                            Graduation Venues
+                        </div>
+                    
+                        <div class="nav-circles">
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="photo-container" style="background-image: url('../static/images/Event-Type/OutdoorActivity.jpg');">
+                    <a href="{{ url_for('web.event_type') }}" data-event = "Outdoor Activities">
+                        <div class="photo-text">
+                            Outdoor Venues
+                        </div>
+                    
+                        <div class="nav-circles">
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="photo-container" style="background-image: url('../static/images/Event-Type/SportEvent.jpg');">
+                    <a href="{{ url_for('web.event_type') }}" data-event = "Sports Events">
+                        <div class="photo-text">
+                            Sports Event Venues
+                        </div>
+                    
+                        <div class="nav-circles">
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="photo-container" style="background-image: url('../static/images/Event-Type/Wedding.jpg');">
+                    <a href="{{ url_for('web.event_type') }}" data-event = "Weddings">
+                        <div class="photo-text">
+                            Wedding Venues
+                        </div>
+                    
+                        <div class="nav-circles">
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        
+
+<!----------------------------- EVENT TYPE SECTION ----------------------------->
+
+
+
+
+        <div class="city-location-section">
+
+            <div class="city-location-title">
+                Browse According to Location
+            </div>
+
+            <div class="city-location-photos">
+
+                <a href="{{ url_for('web.city_page') }}" data-city="Caloocan">
+                    <div class="cell-container">
+                        <div class="city-cell caloocan"></div>
+                        <div class="city-text">Caloocan</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('web.city_page') }}" data-city="Las Piñas">
+                    <div class="cell-container">
+                        <div class="city-cell las-pinas"></div>
+                        <div class="city-text">Las Piñas</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('web.city_page') }}" data-city="Makati">
+                    <div class="cell-container">
+                        <div class="city-cell makati"></div>
+                        <div class="city-text">Makati</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('web.city_page') }}" data-city="Malabon">
+                    <div class="cell-container">
+                        <div class="city-cell malabon"></div>
+                        <div class="city-text">Malabon</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('web.city_page') }}" data-city="Mandaluyong">
+                    <div class="cell-container">
+                        <div class="city-cell mandaluyong"></div>
+                        <div class="city-text">Mandaluyong</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('web.city_page') }}" data-city="Manila">
+                    <div class="cell-container">
+                        <div class="city-cell manila"></div>
+                        <div class="city-text">Manila</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('web.city_page') }}" data-city="Marikina">
+                    <div class="cell-container">
+                        <div class="city-cell marikina"></div>
+                        <div class="city-text">Marikina</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('web.city_page') }}" data-city="Muntinlupa">
+                    <div class="cell-container">
+                        <div class="city-cell muntinlupa"></div>
+                        <div class="city-text">Muntinlupa</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('web.city_page') }}" data-city="Navotas">
+                    <div class="cell-container">
+                        <div class="city-cell navotas"></div>
+                        <div class="city-text">Navotas</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('web.city_page') }}" data-city="Parañaque">
+                    <div class="cell-container">
+                        <div class="city-cell paranaque"></div>
+                        <div class="city-text">Parañaque</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('web.city_page') }}" data-city="Pasay">
+                    <div class="cell-container">
+                        <div class="city-cell pasay"></div>
+                        <div class="city-text">Pasay</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('web.city_page') }}" data-city="Pasig">
+                    <div class="cell-container">
+                        <div class="city-cell pasig"></div>
+                        <div class="city-text">Pasig</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('web.city_page') }}" data-city="Quezon City">
+                    <div class="cell-container">
+                        <div class="city-cell quezon-city"></div>
+                        <div class="city-text">Quezon City</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('web.city_page') }}" data-city="San Juan">
+                    <div class="cell-container">
+                        <div class="city-cell san-juan"></div>
+                        <div class="city-text">San Juan</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('web.city_page') }}" data-city="Taguig">
+                    <div class="cell-container">
+                        <div class="city-cell taguig"></div>
+                        <div class="city-text">Taguig</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('web.city_page') }}" data-city="Valenzuela">
+                    <div class="cell-container">
+                        <div class="city-cell valenzuela"></div>
+                        <div class="city-text">Valenzuela</div>
+                    </div>
+                </a>
+
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <div class="preview-records-section">
+
+            <div class="preview-records-title">
+                Events Places around the Metro
+            </div>
+
+            <div class="preview-records-photos">
+
+
+
+
+                <a href="{{ url_for('web.overall_sort') }}">
+                    <div class="record-cell last">
+                        <div class="cell-photo-last">
+                            <div class="last-details">
+                                <div class="text-link sub">
+                                    Viewfinder for Premiere Events Places
+                                </div>
+    
+    
+                                <div class="text-link main">
+                                    VenueVista
+                                </div>
+
+                                <div class="explore-button">
+                                    <i class="ph ph-caret-right"></i>
+                                    <p class="explore-text">Explore More</p>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+                </a>
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,170 @@
+:root {
+    --white-color: #FFFAFA;
+    --black-color: #292D32;
+    --lightblack-color: #757575;
+    --lighterblack-color: #e4e4e4;
+    --page-color: #EDEDED;
+    
+    --gradient-primary: linear-gradient(45deg, #110DD5, #108AEE);
+    --primary-color: #110DD5;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Gilroy-Regular", sans-serif;
+}
+
+body{
+    background-color: var(--page-color);
+}
+
+
+.background{
+    height: 100vh;
+    width: 100%;
+}
+
+.page-container{
+
+    background-image: url('../images/banner-bg.png'); /* <!-- Reference link changed */
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    height: 100vh;
+
+    overflow: hidden;
+
+    padding-top: 200px;
+    padding-bottom: 150px;
+}
+
+
+.banner-title {
+    z-index: 1;
+    position: absolute;
+    top: 50; 
+    transform: translateY(100%); 
+    height: 30vh;
+
+    left: 40%; 
+}
+
+.banner-details{
+    position: absolute;
+    width: 60%;
+    
+    left: 50%;
+    transform: translateX(-51%);
+    top: 28%;  
+}
+
+
+.title, .subtitle{
+    opacity: 0;
+}
+
+.title img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    
+}
+
+.subtitle img {
+    width: 82%; 
+    height: 100%; 
+    object-fit: cover; 
+    position: relative;
+    top:-25px;
+    right: -17%;
+    
+}
+
+
+
+.button-links{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-51%);
+    bottom: 15%;
+ 
+}
+
+.button-links a{
+    text-decoration: none;
+}
+
+button{
+    background-color: var(--white-color);
+    height: 46px;
+    width: 160px;
+    color: var(--black-color);
+    font-family: 'Gilroy-Medium', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+
+    border: 1px solid var(--lighterblack-color);
+    border-radius: 20px;
+
+    transition: all 0.3s ease;
+}
+
+button:hover{
+    color: var(--primary-color);
+    transform: scale(1.15);
+    cursor: pointer;
+}
+
+button:active{
+    
+    color: var(--white-color);
+}
+
+
+
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(30px); 
+        opacity: 0;
+    }
+
+    20%{
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0px); 
+        opacity: 1;
+    }
+}
+
+
+@keyframes slideDown {
+    0% {
+        
+        opacity: 0;
+    }
+
+
+    100% {
+        
+        opacity: 1;
+    }
+}
+
+
+.animate-Up {
+    animation: slideUp 1s ease 1s 1 forwards normal;
+    opacity: 0;
+}
+
+.animate-Down {
+    animation: slideDown 1s ease 2s 1 forwards normal;
+    opacity: 0;
+}
+
+
+

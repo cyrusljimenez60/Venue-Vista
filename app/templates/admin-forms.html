@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VenueVista</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/main-logo.png') }}" type="image/png"> <!-- Reference link changed -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin-forms.css') }}"> <!-- Reference link changed -->
+    <link href="https://fonts.cdnfonts.com/css/gilroy-bold" rel="stylesheet">
+
+
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+
+
+<body>
+    
+    <div class="page-container">
+
+        <!-- ------------------------ PHOTO COLUMN ------------------------ -->
+
+
+        <div class="page-photo">
+
+            <div class="banner-container">
+            <a href="{{ url_for('admin.admin_dashboard') }}"> <!-- Reference link changed -->
+                <div class="website-title">
+
+                    <div class="title">
+                        <img src="{{ url_for('static', filename='images/logo-title.png') }}"> <!-- Reference link changed -->
+                    </div>
+
+                    <div class="subtitle">
+                        <img src="{{ url_for('static', filename='images/main-sub.png') }}"> <!-- Reference link changed -->
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+
+
+        <!-- ------------------------ SIGNUP COLUMN ------------------------ -->
+
+        <div class="page-details">
+
+            <div class="container">
+
+                <div class="header">
+                    <h2 class="header-title">
+                        New Record
+                    </h2>
+                </div>
+
+                <div class="progress-header">
+
+
+                    <div class="progress-circle">
+                        <div class="circle p1 active">
+                            <i class="ph ph-info"></i>
+                        </div>
+
+
+                        <div class="divider"></div>
+
+
+                        <div class="circle p2">
+                            <i class="ph ph-bookmark"></i>
+                        </div>
+
+
+
+                        <div class="divider"></div>
+
+                        <div class="circle p3">
+                            <i class="ph ph-chat-centered-text"></i>
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="progress-text">
+
+                        <div class="circle-text">
+                            Basic <br> Info
+                        </div>
+
+                        <div class="circle-text">
+                            Venue <br> Attributes
+                        </div>
+
+                        <div class="circle-text">
+                            Venue <br> Description
+                        </div>                       
+                    </div>
+
+
+
+
+                </div>
+
+                <!-- ------------------------ SIGNUP COLUMN ------------------------ -->
+
+                <div class="forms">
+                    <form class="form-main" action="{{ url_for('admin.admin_forms') }}" method="POST">
+                        <div class="stage p1 active">
+                            <div class="input-cell">
+                                <label for="email" class="label-text">Venue Name</label>
+                                <input type="text" id="email" name="venue-name" class="input-field" placeholder="Venue Name" required>
+                            </div>
+
+                            <div class="input-cell city-location">
+                                <label for="city-location" class="label-text">City Location</label>
+                                    <div class="select-container">
+                                        <select id="city-location" name="city-location" class="input-field" required>
+                                            <option value="Select City Location">Select City Location</option>
+                                            <option value="Caloocan">Caloocan</option>
+                                            <option value="Las Pinas">Las Pinas</option>
+                                            <option value="Makati">Makati</option>
+                                            <option value="Malabon">Malabon</option>
+                                            <option value="Mandaluyong">Mandaluyong</option>
+                                            <option value="Manila">Manila</option>
+                                            <option value="Marikina">Marikina</option>
+                                            <option value="Muntinlupa">Muntinlupa</option>
+                                            <option value="Navotas">Navotas</option>
+                                            <option value="Paranaque">Paranaque</option>
+                                            <option value="Pasay">Pasay</option>
+                                            <option value="Pasig">Pasig</option>
+                                            <option value="Quezon City">Quezon City</option>
+                                            <option value="San Juan">San Juan</option>
+                                            <option value="Taguig">Taguig</option>
+                                            <option value="Valenzuela">Valenzuela</option>
+                                        </select>
+                                        <i class="ph ph-caret-down"></i>
+                                    </div>
+                                
+                            </div>
+
+                            <div class="input-cell">
+                                <label for="complete-address" class="label-text">Complete Address</label>
+                                <input type="text" id="complete-address" name="complete-address" class="input-field" placeholder="Complete Address" required>
+                            </div>
+                            <div class="bottom-panel">
+                                <input type="button" class="button" id="stage1Next" value="Next">
+                        
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="stage p2">
+
+
+                            <div class="input-cell price-range">
+                                <label for="price-range" class="label-text">Price Range</label>
+                                    <div class="select-container">
+                                        <select id="price-range" name="price-range" class="input-field" required>
+                                            <option value="Select Price Range">Select Price Range</option>
+                                            <option value="P1,000 - P5,000">P1,000 - P5,000</option>
+                                            <option value="P5,000 - P10,000">P5,000 - P10,000</option>
+                                            <option value="P10,000 - P20,000">P10,000 - P20,000</option>
+                                            <option value="P20,000 - P50,000">P20,000 - P50,000</option>
+                                            <option value="P50,000 - P100,000">P50,000 - P100,000</option>
+                                            <option value="P100,000 - P200,000">P100,000 - P200,000</option>
+                                            <option value="P200,000 - Above">P200,000 - Above</option>
+                                        </select>
+                                        <i class="ph ph-caret-down"></i>
+                                    </div>
+                                
+                            </div>
+
+
+                            <div class="input-cell venue-capacity">
+                                <label for="venue-capacity" class="label-text">Venue Capacity</label>
+                                    <div class="select-container">
+                                        <select id="venue-capacity" name="venue-capacity" class="input-field" required>
+                                            <option value="Select Venue Capacity">Select Venue Capacity</option>
+                                            <option value="1 - 10">1 - 10</option>
+                                            <option value="10 -20">10 -20</option>
+                                            <option value="20 -50">20 -50</option>
+                                            <option value="50 - 100">50 - 100</option>
+                                            <option value="100 -300">100 -300</option>
+                                            <option value="300 -500">300 -500</option>
+                                            <option value="500 - Above">500 - Above</option>
+                                        </select>
+                                        <i class="ph ph-caret-down"></i>
+                                    </div>
+                                
+                            </div>
+
+                            <div class="input-cell venue-setting">
+                                <label for="venue-setting" class="label-text">Venue Setting</label>
+                                    <div class="select-container">
+                                        <select id="venue-setting" name="venue-setting" class="input-field" required>
+                                            <option value="Select Venue Capacity">Select Venue Setting</option>
+                                            <option value="Indoor">Indoor</option>
+                                            <option value="Outdoor">Outdoor</option>
+                                        </select>
+                                        <i class="ph ph-caret-down"></i>
+                                    </div>
+                            </div>
+
+
+                            <div class="checkbox-input-cell">
+                                <label class="label-text">Event Type (Max 4)</label>
+
+                                <div class="checkbox-container">
+
+                                    <div class="checkbox-cell">
+                                        <input type="checkbox" id="birthday" name="event_type[]" value="Birthday" class="input-field">
+                                        <label for="birthday" class="label-text">Birthday</label>
+                                    </div>
+
+                                    <div class="checkbox-cell">
+                                        <input type="checkbox" id="concerts" name="event_type[]" value="Concerts" class="input-field">
+                                        <label for="concerts" class="label-text">Concerts</label>
+                                    </div>
+
+                                    <div class="checkbox-cell">
+                                        <input type="checkbox" id="conference" name="event_type[]" value="Conference" class="input-field">
+                                        <label for="conference" class="label-text">Conference</label>
+                                    </div>
+
+                                    <div class="checkbox-cell">
+                                        <input type="checkbox" id="corporate-events" name="event_type[]" value="Corporate Events" class="input-field">
+                                        <label for="corporate-events" class="label-text">Corporate Events</label>
+                                    </div>
+
+                                    <div class="checkbox-cell">
+                                        <input type="checkbox" id="entertainment" name="event_type[]" value="Entertainment" class="input-field">
+                                        <label for="entertainment" class="label-text">Entertainment</label>
+                                    </div>
+
+                                    <div class="checkbox-cell">
+                                        <input type="checkbox" id="festivals" name="event_type[]" value="Festivals" class="input-field">
+                                        <label for="festivals" class="label-text">Festivals</label>
+                                    </div>
+
+                                    <div class="checkbox-cell">
+                                        <input type="checkbox" id="graduation" name="event_type[]" value="Graduation" class="input-field">
+                                        <label for="graduation" class="label-text">Graduation</label>
+                                    </div>
+
+                                    <div class="checkbox-cell">
+                                        <input type="checkbox" id="outdoor-activities" name="event_type[]" value="Outdoor Activities" class="input-field">
+                                        <label for="outdoor-activities" class="label-text">Outdoor Activities</label>
+                                    </div>
+
+                                    <div class="checkbox-cell">
+                                        <input type="checkbox" id="sports-events" name="event_type[]" value="Sports Events" class="input-field">
+                                        <label for="sports-events" class="label-text">Sports Events</label>
+                                    </div>
+
+                                    <div class="checkbox-cell">
+                                        <input type="checkbox" id="weddings" name="event_type[]" value="Weddings" class="input-field">
+                                        <label for="weddings" class="label-text">Weddings</label>
+                                    </div>
+
+
+
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="checkbox-input-cell">
+                                <label class="label-text">Event Packages </label>
+
+                                <div class="checkbox-container">
+
+                                    <div class="checkbox-cell">
+                                        <input type="checkbox" id="catering-package" name="event_type[]" value="Catering Package" class="input-field">
+                                        <label for="catering-package" class="label-text">Catering Package</label>
+                                    </div>
+                                    
+                                    <div class="checkbox-cell">
+                                        <input type="checkbox" id="decoration-package" name="event_type[]" value="Decoration Package" class="input-field">
+                                        <label for="decoration-package" class="label-text">Decoration Package</label>
+                                    </div>
+
+                                    <div class="checkbox-cell">
+                                        <input type="checkbox" id="event-planning-package" name="event_type[]" value="Event-Planning Package" class="input-field">
+                                        <label for="event-planning-package" class="label-text">Event-Planning Package</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="checkbox-input-cell">
+                                <label class="label-text">Features & Ammenities</label>
+                                <div class="checkbox-container">
+                            
+                            
+                                    <div class="checkbox-cell">
+                                        <input type="checkbox" id="airconditioned-premises" name="event_type[]" value="Airconditioned Premises" class="input-field">
+                                        <label for="airconditioned-premises" class="label-text">Airconditioned Premises</label>
+                                    </div>
+                            
+                                    <div class="checkbox-cell">
+                                        <input type="checkbox" id="audio-visual-equipment" name="event_type[]" value="Audio-Visual Equipment" class="input-field">
+                                        <label for="audio-visual-equipment" class="label-text">Audio-Visual Equipment</label>
+                                    </div>
+                            
+                                    <div class="checkbox-cell">
+                                        <input type="checkbox" id="garden" name="event_type[]" value="Garden" class="input-field">
+                                        <label for="garden" class="label-text">Garden</label>
+                                    </div>
+                            
+                                    <div class="checkbox-cell">
+                                        <input type="checkbox" id="parking-spaces" name="event_type[]" value="Parking Spaces" class="input-field">
+                                        <label for="parking-spaces" class="label-text">Parking Spaces</label>
+                                    </div>
+                            
+                                    <div class="checkbox-cell">
+                                        <input type="checkbox" id="swimming-pool" name="event_type[]" value="Swimming Pool" class="input-field">
+                                        <label for="swimming-pool" class="label-text">Swimming Pool</label>
+                                    </div>
+                            
+                                    <div class="checkbox-cell">
+                                        <input type="checkbox" id="wifi-connection" name="event_type[]" value="WiFi Connection" class="input-field">
+                                        <label for="wifi-connection" class="label-text">WiFi Connection</label>
+                                    </div>
+                            
+                                </div>
+                            </div>
+                        
+
+                            <div class="bottom-panel">
+                                <div class="navigation">
+                                    <input type="button" class="button previous" id="stage2Previous" value="Previous">
+                                    <input type="button" class="button next" id="stage2Next" value="Next">
+                                </div>
+                                
+                            </div>
+                        </div>
+
+
+
+                        <div class="stage p3">
+
+                            <div class="input-cell">
+                                <label for="venue-description" class="label-text">Venue Description</label>
+                                <textarea id="venue-description" class="input-field" placeholder="Enter the venue description" required></textarea>
+                            </div>
+
+
+
+                            <div class="bottom-panel">
+                                <div class="navigation">
+                                    <input type="button" class="button previous" id="stage3Previous" value="Previous">
+                                    <input type="submit" class="button submit" value="Submit">
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+
+
+
+
+            </div>
+            
+        </div>
+
+        
+
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js/admin-forms.js') }}"></script> <!-- Reference link changed -->
+
+</body>
+
+
+</html>

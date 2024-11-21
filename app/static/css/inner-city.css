@@ -1,0 +1,902 @@
+:root {
+    --white-color: #FFFAFA;
+    --black-color: #292D32;
+    --lightblack-color: #757575;
+    --lighterblack-color: #e4e4e4;
+    --page-color: #EDEDED;
+    
+    --gradient-primary: linear-gradient(45deg, #110DD5, #108AEE);
+    --primary-color: #110DD5;
+    --multiply-color: rgba(27, 80, 242, 0.8);
+    --multiply-color-2: rgba(42, 42, 42, 0.9);
+
+    --black-to-transparent-gradient: linear-gradient(
+        to top,
+        rgba(33, 35, 37, 0.7) 0%,
+        rgba(33, 35, 37, 0.5) 20%,
+        rgba(33, 35, 37, 0.3) 40%,
+        rgba(33, 35, 37, 0.1) 70%,
+        rgba(41, 45, 50, 0) 100%
+      );
+
+      --black-to-transparent-gradient-2: linear-gradient(
+        to top,
+        rgba(33, 35, 37, 0.9) 0%,
+        rgba(33, 35, 37, 0.8) 20%,
+        rgba(33, 35, 37, 0.7) 40%,
+        rgba(33, 35, 37, 0.9) 70%,
+        rgba(41, 45, 50, 0) 100%
+      );
+
+      --black-gradient: linear-gradient(
+        to top,
+        rgba(29, 31, 32, 1) 0%,
+        rgba(41, 45, 50, 1) 100%
+        
+      );
+}
+
+.gradient-overlay {
+    position: relative;
+    width: 100%px;
+    height: 100%;
+    background-size: cover;
+  }
+
+.gradient-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: var(--black-to-transparent-gradient-2);
+    pointer-events: none; 
+  }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Gilroy-Regular", sans-serif;
+}
+
+body{
+    background-color: var(--page-color);
+}
+
+.page-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+}
+
+/* ----------------------- NAVBAR -----------------------*/
+
+
+.navbar-container{
+    width: 100%;
+    height: 8vh;
+    background: var(--black-gradient);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0px 32px;
+    
+    
+}
+
+.logo-main{
+    transition: all 0.3s ease;
+}
+
+.logo-main a{
+    text-decoration: none;
+}
+
+.logo-img img{
+    flex: 1;
+    height: 28px;
+    width: auto;
+    object-fit: cover;
+    overflow: hidden;
+    
+}
+
+.logo-main:hover{
+    transform: scale(1.15);
+}
+
+
+.navbar-menu{
+    justify-self: flex-end;
+    text-decoration: none;
+    width: 360px;
+    display: flex;
+    flex-direction: row;
+    
+    justify-content: space-between;
+    gap:40px; 
+    
+}
+
+.navbar-menu > a{
+    
+    flex: 1;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    color: white;
+    position: relative; 
+    display: inline-block; 
+    transition: all 0.3s ease;
+    
+}
+
+
+
+
+
+
+.navbar-menu a::after{
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #FFFAFA;
+    border-radius: 6px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+
+.navbar-menu a:hover::after{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+
+/* ----------------------- NAVBAR -----------------------*/
+
+
+
+
+
+
+
+
+
+.banner-container {
+    position: relative;
+    background-image: url("../images/Cities/manila.jpg");
+    background-color: var(--multiply-color); 
+    background-blend-mode: multiply; 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    overflow: hidden;
+    height: 55vh;
+    width: 100%;
+}
+
+
+
+.banner-container::before{
+
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: var(--black-to-transparent-gradient);
+    pointer-events: none; 
+    
+
+}
+
+.city-div{
+    
+    z-index: 4;
+    font-size: 14px;
+    font-family: 'Gilroy-Medium', sans-serif;
+    text-align: center;
+    background-color: white;
+    padding: 4px 32px;
+    border-radius: 24px;
+
+}
+
+
+.banner-title {
+    z-index: 4;
+    width: 100%;
+    height: 100%;
+
+    margin-top: -10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    
+    
+    
+}
+
+.page-title{
+    z-index: 4;
+    font-size: 72px;
+    font-family: 'Gilroy-Heavy', sans-serif;
+    text-align: center;
+    color: white;
+      
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.city-location-section{
+    width: 85%;
+    height: 350px;
+    align-self: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 32px;
+
+
+}
+
+.city-location-photos{
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding-bottom: 8px;
+}
+
+.city-location-title{
+    font-family: 'Gilroy-Bold', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--black-color);
+}
+
+
+.city-cell {
+    position: relative;
+    height: 200px;
+    width: 340px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border-radius: 32px;
+
+    border: 1px solid var(--lighterblack-color);
+    background-image: url("../images/Cities/cityscape-frankfurt-covered-modern-buildings-sunset-germany.jpg");
+    transition: all 0.3s ease;
+}
+
+.city-cell.caloocan {
+    background-image: url("../images/City/Caloocan.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+.city-cell.las-pinas {
+    background-image: url("../images/City/Laspinas.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.city-cell.makati {
+    background-image: url("../images/City/Makati.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.city-cell.malabon {
+    background-image: url("../images/City/Malabon.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.city-cell.mandaluyong {
+    background-image: url("../images/City/Mandaluyong.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.city-cell.manila {
+    background-image: url("../images/City/Manila.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.city-cell.marikina {
+    background-image: url("../images/City/Marikina.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.city-cell.muntinlupa {
+    background-image: url("../images/City/Muntinlupa.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.city-cell.navotas {
+    background-image: url("../images/City/Navotas.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.city-cell.paranaque {
+    background-image: url("../images/City/Paranaque.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.city-cell.pasay{
+    background-image: url("../images/City/Pasay.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.city-cell.pasig{
+    background-image: url("../images/City/Pasig.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.city-cell.quezon-city{
+    background-image: url("../images/City/QuezonCity.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.city-cell.san-juan{
+    background-image: url("../images/City/SanJuan.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.city-cell.taguig{
+    background-image: url("../images/City/Taguig.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.city-cell.valenzuela{
+    background-image: url("../images/City/Valenzuela.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.city-cell::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: var(--black-to-transparent-gradient);
+    pointer-events: none; 
+    border-radius: 32px;
+    
+}
+
+.city-text{
+    font-family: 'Gilroy-Bold', sans-serif;
+    color: var(--white-color);
+    font-size: 18px;
+    
+
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+
+}
+
+.cell-container{
+    
+    position: relative;
+    height: 200px;
+    width: 300px;
+    overflow: hidden;
+    border-radius: 32px;
+}
+
+a:hover .cell-container .city-cell {
+    transform: scale(1.2);
+}
+
+
+
+
+
+
+
+
+
+
+
+.preview-records-section{
+    width: 85%;
+    max-width: 85%;
+    height: auto;
+    align-self: center;
+    margin-top: 64px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 32px;
+}
+
+
+.preview-records-title-title,
+.preview-records-title{
+    font-family: 'Gilroy-Bold', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--black-color);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.preview-records-photos {
+    height: auto;
+    width: 100%; /* Ensure it takes the full width of its container */
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Equal width columns */
+    grid-template-rows: auto; /* Define rows */
+    align-items: center;
+    gap: 30px;
+
+    overflow: hidden;
+    margin-bottom: 30px;
+    padding-bottom: 32px;
+}
+
+.preview-records-photos a{
+    text-decoration: none;
+    color: var(--black-color);
+}
+
+.record-cell{
+    width: 100%;
+    max-width: 100%;
+    height: 420px;
+
+    border-radius: 32px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    border: 1px solid var(--lighterblack-color);
+    overflow: hidden;
+}
+
+
+
+
+
+.record-photo{
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+    border-radius: 32px;
+    position: relative;
+}
+
+
+
+.record-photo-container{
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../images/Cities/cityscape-frankfurt-covered-modern-buildings-sunset-germany.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 32px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+}
+
+
+.record-photo-container::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: var(--black-to-transparent-gradient);
+    pointer-events: none; 
+    border-radius: 32px;
+}
+
+
+.record-photo-container:hover{
+    transform: scale(1.2);
+}
+
+
+.record-tags{
+    z-index: 1;
+    height: 44px;
+    width: 100%;
+    padding:  0px 24px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    position: absolute; 
+    bottom:0px;
+
+    
+
+}
+
+.record-capacity{
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.capacity-icon{
+    font-size: 12px;
+    color: var(--white-color);
+}
+
+.capacity-data{
+    font-family: 'Gilroy-Medium', sans-serif;
+    
+    color: var(--white-color);
+    font-size: 10px;
+}
+
+
+
+
+.record-location{
+    height: 22px;
+    padding: 8px 16px;
+    background-color: var(--white-color);
+    border-radius: 32px;
+
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+
+.location-icon{
+    font-size: 12px;
+    color: var(--black-color);
+}
+
+.location-data{
+
+    font-family: 'Gilroy-Medium', sans-serif;
+    
+    color: var(--black-color);
+    font-size: 10px;
+}
+
+
+
+
+
+
+
+
+.record-details{
+    width: 100%;
+    height: 50%;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    overflow: hidden;
+    padding: 16px;
+    
+
+    
+}
+
+.record-title {
+    width: 100%; /* Ensure it takes the full width of its container */
+    max-width: 100%;
+    height: 24px;
+    max-height: 24px;
+    font-family: 'Gilroy-Bold', sans-serif;
+    font-weight: 500;
+    color: var(--black-color);
+    font-size: 18px;
+
+    overflow: hidden; /* Hides the overflowing text */
+}
+
+
+.record-features{
+    max-width: 100%;
+    max-height: 22px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 4px;
+    flex-wrap: wrap;
+
+    overflow: hidden;
+    margin-bottom: 16px;
+
+}
+
+.feature-tag{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Gilroy-Regular', sans-serif;
+    font-size: 8px;
+
+    padding: 4px 8px;
+    border: 1px solid var(--lighterblack-color);
+    border-radius: 32px;
+}
+
+.record-desc{
+    width: 100%;
+    height: 32px;
+    
+}
+
+.record-desc p{
+    width: 100%;
+    height: 42px;
+    
+    
+    font-family: 'Gilroy-Regular', sans-serif;
+    font-size: 12px;
+
+    overflow: hidden;
+
+   
+}
+
+.divider{
+    
+    margin-top: 24px;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 1px;
+
+    
+
+    border-bottom: 1px solid var(--lighterblack-color);
+}
+
+.record-price{
+    width: 50%;
+    height: 32px;
+    border-radius: 32px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--gradient-primary);
+}
+
+.record-price-data{
+    font-family: 'Gilroy-Medium', sans-serif;
+    font-size: 12px;
+
+    color: var(--white-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.sort-container{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.sort-container.active{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(45px); 
+        opacity: 0;
+    }
+
+    20%{
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0); 
+        opacity: 1;
+    }
+}
+
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(-90px); 
+        opacity: 0;
+    }
+
+    20%{
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0px); 
+        opacity: 1;
+    }
+}
+
+
+
+
+.animate-Up {
+    animation: slideUp 1s ease 1 forwards normal;
+    opacity: 0;
+}
+
+.animate-Down {
+    animation: slideDown 0.8s ease 1 forwards normal;
+    opacity: 0;
+}
+
+
+
+
+@keyframes slideUpBack {
+    0% {
+        transform: translateY(45px); 
+        opacity: 0;
+    }
+
+    20%{
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0); 
+        opacity: 1;
+    }
+}
+
+.animate-Up-Back {
+    animation: slideUpBack 1s ease 1 forwards normal;
+    opacity: 1;
+}

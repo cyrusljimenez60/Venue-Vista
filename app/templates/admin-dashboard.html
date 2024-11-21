@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VenueVista</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/main-logo.png') }}" type="image/png"> <!-- Reference link changed -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin-dashboard.css') }}"> <!-- Reference link changed -->
+    <link href="https://fonts.cdnfonts.com/css/gilroy-bold" rel="stylesheet">
+                
+
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+
+
+<body>
+    
+<div class="page-container">
+  
+    <div class="sidebar">
+
+        <div class="profile-section">
+            <div class="profile-pic">
+                <img src="{{ url_for('static', filename='images/Cities/manila.jpg') }}"> <!-- Reference link changed -->
+            </div>
+            <div class="profile-details">
+                <p id="profile-name">{{ username }}</p> <!-- Display -->
+                <p id="profile-company">{{ title }}</p>
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-section" >
+
+            <a href="{{ url_for('admin.admin_dashboard') }}"> <!-- Reference link changed -->
+                <div class="dashboard-cell active">
+                    <div class="dashboard">
+                        <i class="ph-bold ph-house-simple"></i>
+                        <p class="text">Dashboard</p>
+                    </div>
+                </div>
+            </a>
+
+
+            <a href="{{ url_for('admin.admin_forms') }}"> <!-- Reference link changed -->
+            <div class="dashboard-cell">
+                <div class="analytics">
+                    <i class="ph-bold ph-chart-bar"></i>
+                    <p class="text">Add Records</p>
+                </div>
+            </div>
+            </a>
+
+
+        </div>
+
+
+        <div class="settings-section">
+            
+            <a href="#">
+                <div class="dashboard-cell">
+                    <div class="settings">
+                        <i class="ph-bold ph-gear-six"></i>
+                        <p class="text">Settings</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+    </div>
+
+
+
+
+    <div class="main-page">
+        <div class="header-info">
+            <p class="class-section">VenueVista</p>
+            <p class="class-department">Administrator Access</p>
+        </div>
+
+
+
+        
+        <div class="header-widgets">
+
+            <div class="widget-cell">
+                <div class="widget-top">
+                    <i class="ph ph-identification-badge"></i>
+                    <p class="widget-title">Admin Code</p>
+                </div>
+            
+                <div class="widget-bottom">
+                    <p class="widget-data">VNV-001</p>
+                </div>
+
+                
+            </div>
+
+            <div class="widget-cell">
+                <div class="widget-top">
+                    <i class="ph ph-list-numbers"></i>
+                    <p class="widget-title">Total Records</p>
+                </div>
+            
+                <div class="widget-bottom">
+                    <p class="widget-data">{{ total_records }} Records</p> <!-- Display total records count -->
+                </div>
+
+                
+            </div>
+
+            <div class="widget-cell">
+                <div class="widget-top">
+                    <i class="ph ph-city"></i>
+                    <p class="widget-title">Total Cities</p>
+                </div>
+            
+                <div class="widget-bottom">
+                    <p class="widget-data">{{ total_cities }} Cities</p> <!-- Display total cities count -->
+                </div>
+            </div>
+
+        </div>
+
+        <div class="records-table">
+
+            <div class="header-title-title">
+                Overall Records
+            </div>
+
+            <div class="records-table-header">
+
+                <div class="record-id">
+                    ID
+                </div>
+
+                <div class="record-title">
+                    Name
+                </div>
+
+                <div class="record-city">
+                    City
+                </div>
+
+                <div class="record-pricerange">
+                    Price Range
+                </div>
+
+
+            </div>
+
+            {% for venue in venues %} <!-- Start for loop -->
+            <div class="record-cell">
+
+                <div class="record-id">
+                    <p class="record-text">{{ venue.intVenueID }}</p> <!-- Added textual values returned by Flask -->        
+                </div>
+
+                <div class="record-title">
+                    <p class="record-text">{{ venue.strVenueName }}</p> <!-- Added textual values returned by Flask -->
+                </div>
+                
+
+
+                <div class="record-city">
+                    <p class="record-text">{{ venue.strLocationText }}</p> <!-- Added textual values returned by Flask -->
+                </div>
+
+                <div class="record-pricerange">
+                    <p class="record-text">{{ venue.strPriceRangeText }}</p> <!-- Added textual values returned by Flask -->
+                </div>
+            </div>
+            {% endfor %} <!-- End for loop -->
+           
+        </div>
+  
+</div>
+        
+    </div>
+
+        
+
+
+    </div>
+
+</div>  
+
+
+</body>
+</html>

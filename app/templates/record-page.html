@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VenueVista</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/main-logo.png') }}" type="image/png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/record-page.css') }}">
+    <link href="https://fonts.cdnfonts.com/css/gilroy-bold?styles=20876,20877,20878,20879,20880" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+</head>
+
+<body>
+    
+
+    <div class="page-container">
+
+        <div class="navbar-container">
+            <div class="logo-main">
+                <a href="{{ url_for('web.home_page') }}">
+                    <div class="logo-img">
+                        <img src="{{ url_for('static', filename='images/logo-title.png') }}">
+                    </div>
+                </a>
+            </div>
+
+            
+
+            <div class="navbar-menu">
+                <a href="{{ url_for('web.overall_sort') }}">Venues</a>
+                <a href="{{ url_for('web.inner_city') }}">Cities</a>
+                <a href="{{ url_for('web.inner_event') }}">Events</a>
+                <a href="{{ url_for('admin.admin_index') }}">Admin</a>
+            </div>
+
+
+        </div>
+
+        <div class="record-banner">
+            
+            <div class="record-photo">
+
+            </div>
+
+            <div class="record-details">
+
+                <div class="record-city">
+                    
+                </div>
+
+                <div class="record-title">
+                    
+                </div>
+
+                <div class="record-address">
+                    <i class="ph ph-map-pin-line"></i>
+                    <p class="address-text"></p>
+                </div>
+
+                <div class="record-description">
+                    
+                </div>
+
+
+            </div>
+
+            <div class="record-pricing">
+                <i class="ph-bold ph-tag"></i>
+                <p class="pricing-text">P 100,000 - P 200,000</p>
+            </div>
+
+
+        </div>
+
+
+        <div class="record-packages-container">
+
+            <div class="package-cell c1">
+                <i class="ph ph-fork-knife"></i>
+                <p class="package-text c1">CATERING PACKAGE</p>
+            </div>
+
+            <div class="package-cell c2">
+                <i class="ph ph-rainbow-cloud"></i>
+                <p class="package-text c1">DECORATION PACKAGE</p>
+            </div>
+
+            <div class="package-cell c3">
+                <i class="ph ph-clipboard-text"></i>
+                <p class="package-text c1">EVENT-PLANNING PACKAGE</p>
+            </div>
+
+        </div>
+
+
+        <div class="panel-divider-horizontal"></div>
+
+
+        <div class="record-details-container">
+            <div class="left-panel">
+                <div class="features-amenities">
+                    <div class="section-title">Features and Amenities</div>
+                    <ul class="feature-list">
+
+                    </ul>
+                </div>
+
+                <div class="capacity">
+                    <div class="section-title">Capacity</div>
+                    <div class="capacity-cell">
+                        <i class="ph ph-user-circle-plus"></i>
+                        <p class="capacity-text"></p>
+                    </div>
+                </div>
+
+                <div class="setting">
+                    <div class="section-title">Setting</div>
+                    
+                    <div class="setting-cell">
+                        <i class="ph ph-cloud-sun"></i>
+                        <p class="setting-text">Indoor</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-divider-vertical"></div>
+                
+            <div class="right-panel">
+                <div class="venue-gallery">
+                    <div class="section-title">Venue Gallery</div>
+
+                    <div class="gallery-container">
+                        <div class="image-container p1">
+                            <img class="image p1">
+                        </div>
+
+                        <div class="image-container p2">
+                            <img class="image p2">
+                        </div>
+
+                        <div class="image-container p3">
+                            <img class="image p3">
+                        </div>
+                        
+                        
+                        
+                    </div>
+
+                    
+                </div>
+
+                <div class="event-types">
+
+                    <div class="section-title">Event Types</div>
+
+                    <div class="event-types-container">
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+    <script src="{{ url_for('static', filename='js/record-page.js') }}"></script>
+
+</body>
+</html>

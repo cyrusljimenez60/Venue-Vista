@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VenueVista</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/main-logo.png') }}" type="image/png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/inner-city.css') }}">
+    <link href="https://fonts.cdnfonts.com/css/gilroy-bold?styles=20876,20877,20878,20879,20880" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+</head>
+
+<body>
+    
+    <div class="page-container">
+
+        <div class="navbar-container">
+            <div class="logo-main">
+                <a href="{{ url_for('web.home_page') }}">
+                    <div class="logo-img">
+                        <img src="{{ url_for('static', filename='images/logo-title.png') }}">
+                    </div>
+                </a>
+            </div>
+
+            <div class="navbar-menu">
+                <a href="{{ url_for('web.overall_sort') }}">Venues</a>
+                <a href="{{ url_for('web.inner_city') }}">Cities</a>
+                <a href="{{ url_for('web.inner_event') }}">Events</a>
+                <a href="{{ url_for('admin.admin_index') }}">Admin</a>
+            </div>
+
+
+        </div>
+
+        <div class="banner-container">
+
+            <div class="banner-title">
+                <div class="page-title">
+                    
+                </div>  
+
+                <div class="city-div">
+                    Explore Events Place by City
+                </div>    
+            </div>
+
+
+        </div>
+
+        <!----------------------------- EVENT TYPE SECTION ----------------------------->
+
+
+
+
+        <div class="city-location-section">
+
+            <div class="city-location-title">
+                Browse According to Location
+            </div>
+
+            <div class="city-location-photos">
+
+                <a href="{{ url_for('web.city_page') }}" data-city="Caloocan">
+                    <div class="cell-container">
+                        <div class="city-cell caloocan"></div>
+                        <div class="city-text">Caloocan</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('web.city_page') }}" data-city="Las Piñas">
+                    <div class="cell-container">
+                        <div class="city-cell las-pinas"></div>
+                        <div class="city-text">Las Piñas</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('web.city_page') }}" data-city="Makati">
+                    <div class="cell-container">
+                        <div class="city-cell makati"></div>
+                        <div class="city-text">Makati</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('web.city_page') }}" data-city="Malabon">
+                    <div class="cell-container">
+                        <div class="city-cell malabon"></div>
+                        <div class="city-text">Malabon</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('web.city_page') }}" data-city="Mandaluyong">
+                    <div class="cell-container">
+                        <div class="city-cell mandaluyong"></div>
+                        <div class="city-text">Mandaluyong</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('web.city_page') }}" data-city="Manila">
+                    <div class="cell-container">
+                        <div class="city-cell manila"></div>
+                        <div class="city-text">Manila</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('web.city_page') }}" data-city="Marikina">
+                    <div class="cell-container">
+                        <div class="city-cell marikina"></div>
+                        <div class="city-text">Marikina</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('web.city_page') }}" data-city="Muntinlupa">
+                    <div class="cell-container">
+                        <div class="city-cell muntinlupa"></div>
+                        <div class="city-text">Muntinlupa</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('web.city_page') }}" data-city="Navotas">
+                    <div class="cell-container">
+                        <div class="city-cell navotas"></div>
+                        <div class="city-text">Navotas</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('web.city_page') }}" data-city="Parañaque">
+                    <div class="cell-container">
+                        <div class="city-cell paranaque"></div>
+                        <div class="city-text">Parañaque</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('web.city_page') }}" data-city="Pasay">
+                    <div class="cell-container">
+                        <div class="city-cell pasay"></div>
+                        <div class="city-text">Pasay</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('web.city_page') }}" data-city="Pasig">
+                    <div class="cell-container">
+                        <div class="city-cell pasig"></div>
+                        <div class="city-text">Pasig</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('web.city_page') }}" data-city="Quezon City">
+                    <div class="cell-container">
+                        <div class="city-cell quezon-city"></div>
+                        <div class="city-text">Quezon City</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('web.city_page') }}" data-city="San Juan">
+                    <div class="cell-container">
+                        <div class="city-cell san-juan"></div>
+                        <div class="city-text">San Juan</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('web.city_page') }}" data-city="Taguig">
+                    <div class="cell-container">
+                        <div class="city-cell taguig"></div>
+                        <div class="city-text">Taguig</div>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('web.city_page') }}" data-city="Valenzuela">
+                    <div class="cell-container">
+                        <div class="city-cell valenzuela"></div>
+                        <div class="city-text">Valenzuela</div>
+                    </div>
+                </a>
+
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+    </div>
+
+
+
+<script src="{{ url_for('static', filename='js/inner-city.js') }}"></script>
+
+</body>
+</html>

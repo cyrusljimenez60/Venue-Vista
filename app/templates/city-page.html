@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VenueVista</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/main-logo.png') }}" type="image/png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/city-page.css') }}">
+    <link href="https://fonts.cdnfonts.com/css/gilroy-bold?styles=20876,20877,20878,20879,20880" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+</head>
+
+<body>
+    
+    <input type="hidden" id="baseUrl" value="{{ url_for('web.display_record', venue_id=0) }}">
+    
+    <div class="page-container">
+
+        <div class="navbar-container">
+            <div class="logo-main">
+                <a href="{{ url_for('web.home_page') }}">
+                    <div class="logo-img">
+                        <img src="{{ url_for('static', filename='images/logo-title.png') }}">
+                        
+                    </div>
+                </a>
+            </div>
+
+            <div class="navbar-menu">
+                <a href="{{ url_for('web.overall_sort') }}">Venues</a>
+                <a href="{{ url_for('web.inner_city') }}">Cities</a>
+                <a href="{{ url_for('web.inner_event') }}">Events</a>
+                <a href="{{ url_for('admin.admin_index') }}">Admin</a>
+            </div>
+
+
+        </div>
+
+        <div class="banner-container">
+
+            <div class="banner-title">
+                <div class="city-title">
+                    
+                </div>  
+
+                <div class="city-div">
+                    Events Place By City
+                </div>    
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="preview-records-section">
+
+            <div class="preview-records-title">
+                
+                <div class="preview-records-title-title">
+
+                </div>
+
+                <div class="sort-section">
+                    <div class="sort-button" id="sortButton">
+                        <p class="sort-text">Sort By</p>
+                        <i class="ph-bold ph-caret-up-down"></i>
+                        
+                    </div>
+
+                    <div class="sort-settings">
+                        <div class="sort-container" id="sortContainer">
+                            
+                                <div class="header-cell sortby">
+                                    <div class="lineS"></div>
+                                    <p sort-text>Sort By</p>
+                                    <div class="lineL"></div>
+                                </div>
+                            
+
+                            <div class="sort-cell name" id="sortByName">
+                                <i class="ph-bold ph-text-aa"></i>
+                                <p sort-text>Name</p>
+                            </div>
+                            <div class="sort-cell price" id="sortByPrice">
+                                <i class="ph-bold ph-tag"></i>
+                                <p sort-text>Price</p>
+                            </div>
+
+                            
+                                <div class="header-cell orderby">
+                                    <div class="lineS"></div>
+                                    <p sort-text>Order By</p>
+                                    <div class="lineL"></div>
+                                </div>
+                            
+
+                            <div class="sort-cell asc" id="orderByAsc">
+                                <i class="ph-bold ph-funnel-simple"></i>
+                                <p sort-text>Ascending</p>
+                            </div>
+                            <div class="sort-cell desc" id="orderByDesc">
+                                <i class="ph-bold ph-funnel-simple"></i>
+                                <p sort-text>Descending</p>
+                            </div>
+
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="preview-records-photos">
+
+
+
+                <!--  TEMPLATE FOR RECORD CELLS
+                <a href="#" id="101">
+                    <div class="record-cell" >
+
+                        <div class="record-photo">
+                            <div class="record-photo-container"></div> 
+                            
+                            <div class="record-tags">
+                                <div class="record-capacity">
+                                    <div class="capacity-icon">
+                                        <i class="ph ph-users"></i>
+                                    </div>
+
+                                    <div class="capacity-data">
+                                        
+                                    </div>
+                                </div>
+
+                                <div class="record-location">
+                                    <div class="location-icon">
+                                        <i class="ph ph-map-pin"></i>
+                                    </div>
+
+                                    <div class="location-data">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="record-details">
+                            <div class="record-title">
+                                
+                            </div>
+
+                            <div class="record-features">
+
+                            </div>
+
+                            <div class="record-desc">
+                                <p class="record-desc-data">
+                                    
+                                </p>
+                            </div>
+
+                            <div class="divider">
+
+                            </div>
+
+                            <div class="record-price">
+                                <div class="record-price-data">
+                                    
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </a>
+
+                -->
+
+            </div>
+
+        </div>
+
+    </div>
+
+<script src="{{ url_for('static', filename='js/city-page.js') }}"></script>
+
+</body>
+</html>
