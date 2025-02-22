@@ -105,7 +105,7 @@
                 <!-- ------------------------ SIGNUP COLUMN ------------------------ -->
 
                 <div class="forms">
-                    <form class="form-main" action="{{ url_for('admin.admin_forms') }}" method="POST">
+                    <form class="form-main" action="{{ url_for('admin.admin_forms') }}" method="POST" enctype="multipart/form-data">
                         <div class="stage p1 active">
                             <div class="input-cell">
                                 <label for="email" class="label-text">Venue Name</label>
@@ -352,6 +352,22 @@
                                 <textarea id="venue-description" name="venue-description" class="input-field" placeholder="Enter the venue description" required></textarea>
                             </div>
 
+                            <div class="image-upload">
+                                <div id="image1-upload">
+                                    <label for="venue-image1" class="label-text">Image #1</label>
+                                    <input type="file" id="venue-image1" name="venue-image1" required>
+                                </div>
+    
+                                <div id="image2-upload">
+                                    <label for="venue-image2" class="label-text">Image #2</label>
+                                    <input type="file" id="venue-image2" name="venue-image2" required>
+                                </div>
+    
+                                <div id="image3-upload">
+                                    <label for="venue-image3" class="label-text">Image #3</label>
+                                    <input type="file" id="venue-image3" name="venue-image3" required>
+                                </div>
+                            </div>
 
 
                             <div class="bottom-panel">

@@ -1,5 +1,7 @@
 from flask import Blueprint, flash, render_template, request, redirect, url_for, current_app,g
 import mysql.connector
+import os
+from werkzeug.utils import secure_filename
 
 bp = Blueprint("admin", __name__)
 
@@ -159,6 +161,21 @@ def admin_forms():
             packages = request.form.getlist('package[]')
             for package in packages:
                 cursor.execute("INSERT INTO tblVenuePackage (intVenueID, intPackageID) VALUES (%s, %s)", (venue_id, package))
+
+            # Handle file uploads
+            upload_folder = os.path.join(current_app.root_path, 'static', 'images', 'venues', str(venue_id))
+            os.makedirs(upload_folder, exist_ok=True)
+            print(f"Upload folder created: {upload_folder}")
+
+            for i in range(1, 4):
+                file = request.files.get(f'venue-image{i}')
+                if file:
+                    filename = secure_filename(f'image{i}.jpg')
+                    file_path = os.path.join(upload_folder, filename)
+                    file.save(file_path)
+                    print(f"File saved: {file_path}")
+                else:
+                    print(f"No file found for venue-image{i}")
 
             db.commit()  # Commit the transaction
             flash('Venue details added successfully!', 'success')
