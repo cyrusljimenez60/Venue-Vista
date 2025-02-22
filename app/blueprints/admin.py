@@ -111,6 +111,7 @@ def admin_forms():
             price_range = request.form['price-range']
             venue_capacity = request.form['venue-capacity']
             venue_setting = request.form['venue-setting']
+            venue_description = request.form['venue-description']
 
             # Retrieve the location ID based on the selected city location
             cursor.execute("SELECT intLocationID FROM tblLocation WHERE strLocationText = %s", (city_location,))
@@ -129,11 +130,36 @@ def admin_forms():
             else:
                 flash('Invalid price range selected.', 'error')
                 return redirect(url_for('admin.admin_forms'))
+            
+            # Retrieve the capacity ID based on the selected capacity range
+            cursor.execute("SELECT intCapacityID FROM tblCapacity WHERE strCapacityText = %s", (venue_capacity,))
+            capacity_row = cursor.fetchone()
+            if capacity_row:
+                capacity_id = capacity_row[0]
+            else:
+                flash('Invalid capacity range selected.', 'error')
+                return redirect(url_for('admin.admin_forms'))
 
             # Insert into tblVenue
-            cursor.execute("INSERT INTO tblVenue (strVenueName, strAddress, intLocationID, intPriceRangeID, intCapacityID, strSetting) VALUES (%s, %s, %s, %s, %s, %s)",
-                           (venue_name, complete_address, location_id, price_range_id, venue_capacity, venue_setting))
-            
+            cursor.execute("INSERT INTO tblVenue (strVenueName, strAddress, intLocationID, intPriceRangeID, intCapacityID, strSetting, strDescription) VALUES (%s, %s, %s, %s, %s, %s, %s)",
+                           (venue_name, complete_address, location_id, price_range_id, capacity_id, venue_setting, venue_description))
+            venue_id = cursor.lastrowid  # Get the auto-incremented venue ID
+
+            # Insert into tblVenueEventType
+            event_types = request.form.getlist('event_type[]')
+            for event_type in event_types:
+                cursor.execute("INSERT INTO tblVenueEventType (intVenueID, intEventTypeID) VALUES (%s, %s)", (venue_id, event_type))
+
+            # Insert into tblVenueFeature
+            features = request.form.getlist('feature[]')
+            for feature in features:
+                cursor.execute("INSERT INTO tblVenueFeature (intVenueID, intFeatureID) VALUES (%s, %s)", (venue_id, feature))
+
+            # Insert into tblVenuePackage
+            packages = request.form.getlist('package[]')
+            for package in packages:
+                cursor.execute("INSERT INTO tblVenuePackage (intVenueID, intPackageID) VALUES (%s, %s)", (venue_id, package))
+
             db.commit()  # Commit the transaction
             flash('Venue details added successfully!', 'success')
         except Exception as e:
