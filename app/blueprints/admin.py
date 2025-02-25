@@ -1,4 +1,4 @@
-from flask import Blueprint, flash, render_template, request, redirect, url_for, current_app,g
+from flask import Blueprint, flash, render_template, request, redirect, url_for, current_app, g, session
 import mysql.connector
 import os
 from werkzeug.utils import secure_filename
@@ -34,6 +34,9 @@ def admin_index():
 
 @bp.route("/admin/login/", methods=['GET', 'POST'])
 def admin_login():
+    if 'admin_id' in session:
+        return redirect(url_for('admin.admin_dashboard'))
+    
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
@@ -41,9 +44,6 @@ def admin_login():
         if not username or not password:
             flash('Please enter both Username and Password.', 'error')
             return render_template('admin-login.html')
-
-        print(f"Received email: {username}")
-        print(f"Received password: {password}")
         
         conn = get_db()
         cursor = conn.cursor(dictionary=True)
@@ -54,21 +54,35 @@ def admin_login():
         cursor.close()
         conn.close()
         
-        if user and user['strAdminPassword'] == password:
-            return redirect(url_for('admin.admin_dashboard'))
+        if user:
+            print(f"User found: {user['strAdminUsername']}")
+            if user['strAdminPassword'] == password:
+                session['admin_id'] = user['intAdminID']
+                print(f"Session set for admin_id: {session['admin_id']}")
+                return redirect(url_for('admin.admin_dashboard'))
+            else:
+                flash('Incorrect Password. Please try again.', 'error')
         else:
             flash('Incorrect Username or Password. Please try again.', 'error')
     
     return render_template('admin-login.html')
+
+@bp.route("/admin/logout/")
+def admin_logout():
+    session.clear()
+    return redirect(url_for('admin.admin_login'))
     
 @bp.route("/admin/dashboard/")
 def admin_dashboard():
+    if 'admin_id' not in session:
+        return redirect(url_for('admin.admin_login'))
+
     try:
         conn = get_db()
         cursor = conn.cursor(dictionary=True)
         
         # Fetch logged-in admin's username and title
-        cursor.execute("SELECT strAdminUsername, strAdminTitle FROM tblAdmin WHERE intAdminID = %s", (1,))
+        cursor.execute("SELECT strAdminUsername, strAdminTitle FROM tblAdmin WHERE intAdminID = %s", (session['admin_id'],))
         admin_data = cursor.fetchone()  
         username = admin_data['strAdminUsername']
         title = admin_data['strAdminTitle']
